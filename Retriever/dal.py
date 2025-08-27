@@ -19,7 +19,7 @@ class DAL:
 
         collection = client['tweets']
 
-        query = collection.find({},{"_id":0}).limit(50)
+        query = collection.find({},{"_id":0}).sort('CreateDate',1).skip(0).limit(100)
 
         return query
 
