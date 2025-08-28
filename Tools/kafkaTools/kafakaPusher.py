@@ -11,7 +11,7 @@ class Push_kafka:
     def connect(self)->None:
         self.producer = KafkaProducer(bootstrap_servers = self.addres)
 
-    def send_by_topic_name(self,topicName:str,message:dict)->None:
+    def send_by_topic_name(self,topicName:str,message)->None:
         self.producer.send(topicName,json.dumps(message).encode('utf-8'))
 
     def close(self)->None:
