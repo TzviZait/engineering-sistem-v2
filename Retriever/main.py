@@ -12,7 +12,7 @@ while True:
     data = dal.get_database(skip)
     skip += 100
     splitter.splitter(data)
-    time.sleep(60)
+    time.sleep(1)
 
 
 
