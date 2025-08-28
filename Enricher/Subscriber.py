@@ -1,4 +1,3 @@
-import datetime
 import json
 from Tools.kafkaTools.kafakaPusher import Push_kafka
 from Enricher.processeser import ProcesseData
@@ -20,7 +19,7 @@ class EnricherSubscriber:
         i = 0
         for message in self.consumer:
             message_val = json.loads(message.value.decode('utf-8'))
-            addFilds = ProcesseData.processing(message)
+            addFilds = ProcesseData.processing(message_val)
             for fild in addFilds.keys():
                 message_val[fild] = addFilds[fild]
             if message.topic == topics_names_1:
