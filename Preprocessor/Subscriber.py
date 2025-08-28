@@ -22,8 +22,6 @@ class CleanerSubscriber:
         for message in self.consumer:
             message_val = json.loads(message.value.decode('utf-8'))
             cleanData = Cleaner.cleanData(message_val['text'])
-            message_val['original_text'] = message_val['text']
-            message_val.pop('text')
             message_val['clean_text'] = cleanData
             if message.topic == topics_names_1:
                 self.kafka_pusher.send_by_topic_name(target_topic_name_1,message_val)
