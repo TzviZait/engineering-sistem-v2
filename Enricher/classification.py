@@ -1,6 +1,6 @@
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-# nltk.download('vader_lexicon')
+nltk.download('vader_lexicon')
 
 
 class Classification:
@@ -20,4 +20,3 @@ class Classification:
         score = SentimentIntensityAnalyzer().polarity_scores(tweet)
         return Classification.get_comp_level(score['compound'])
     
-# print(Classification.get_compound('sdsanddunes barbarian kkk nazi isi wirathu jvp zionazis hadhave constituent open closeted'))

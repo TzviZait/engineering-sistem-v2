@@ -1,5 +1,5 @@
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parents[1]
+BASE_DIR = Path(__file__).resolve().parent  # מצביע על Enricher
 
 
 
@@ -12,7 +12,9 @@ class Weapons_detecter:
 
     @staticmethod
     def get_weapons_from_file()->list:
-        with open('.\Enricher\weapon_list .txt' ,'r') as f:
+        file_path = Path(__file__).resolve().parent / 'weapon_list.txt'
+        print(file_path)
+        with open(file_path ,'r',encoding='utf-8') as f:
             tlist =(f.read().split('\n'))
         return tlist
     
@@ -25,5 +27,3 @@ class Weapons_detecter:
             if word in weapons:
                 my_weapons.append(word)
         return my_weapons
-    
-# print(Weapons_detecter.get_weapons_from_file())

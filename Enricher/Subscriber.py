@@ -19,7 +19,8 @@ class EnricherSubscriber:
         i = 0
         for message in self.consumer:
             message_val = json.loads(message.value.decode('utf-8'))
-            addFilds = ProcesseData.processing(message_val)
+            print(message_val)
+            addFilds = ProcesseData.processing(message_val['text'])
             for fild in addFilds.keys():
                 message_val[fild] = addFilds[fild]
             if message.topic == topics_names_1:
