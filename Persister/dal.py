@@ -11,7 +11,7 @@ class DAL:
 
 
 
-    def dal(self,colName,data):
+    def send(self,colName,data):
         mycol = self.mydb[colName]
              # datetime.now().strftime("%H:%M:%S")
             # my_dict = {datetime.now().strftime("%H:%M:%S"): message.value.decode('utf-8')}
